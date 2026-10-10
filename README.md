@@ -1,4 +1,4 @@
-# ESP-Drone: Max Imagination Workshop (Mumbai)
+# Oct 10 Drone Workshop: ESP-Drone (Max Imagination, Mumbai)
 
 ESP32-S3 drone firmware, ported to **ESP-IDF v6.1**.
 
@@ -11,8 +11,8 @@ ESP32-S3 drone firmware, ported to **ESP-IDF v6.1**.
 ## Build from source
 Requires [ESP-IDF v6.1](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/).
 ```bash
-git clone https://github.com/harshith-cmd/esp-drone-max-imagination.git
-cd esp-drone-max-imagination
+git clone https://github.com/harshith-cmd/oct-10-drone-workshop.git
+cd oct-10-drone-workshop
 idf.py build
 idf.py -p PORT flash monitor
 ```
