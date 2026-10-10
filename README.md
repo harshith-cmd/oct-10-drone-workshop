@@ -1,3 +1,34 @@
+# ESP-Drone: Max Imagination Workshop (Mumbai)
+
+ESP32-S3 drone firmware, ported to **ESP-IDF v6.1**.
+
+## Quick start: flash and fly
+1. **Flash** the prebuilt firmware. See [`firmware/README.md`](firmware/README.md). You can flash from a browser with nothing installed.
+2. **Power on** the drone on a flat surface and keep it still while it calibrates.
+3. **Connect** your phone to Wi-Fi `ESP-DRONE_XXXXXXXXXXXX` with password `12345678`.
+4. **Fly** with the ESP-Drone app ([Android](https://github.com/EspressifApps/ESP-Drone-Android) / [iOS](https://github.com/EspressifApps/ESP-Drone-iOS)). Raise the throttle gently.
+
+## Build from source
+Requires [ESP-IDF v6.1](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/).
+```bash
+git clone https://github.com/harshith-cmd/esp-drone-max-imagination.git
+cd esp-drone-max-imagination
+idf.py build
+idf.py -p PORT flash monitor
+```
+`sdkconfig` already holds the board configuration (target esp32s3, pins, motors), so you don't need to run `set-target`.
+
+**Pins:** motors M1-M4 on GPIO 10, 3, 2 and 1 · LEDs on GPIO 4 (blue), 5 (green) and 6 (red) · IMU on I2C0 (SDA 8, SCL 9) · battery ADC on GPIO 7.
+
+The Wi-Fi name and password are set in `components/drivers/general/wifi/wifi_esp32.c`.
+
+### Changes from upstream (IDF v5.0 to v6.1)
+- Rewrote the battery ADC driver for `esp_adc/adc_oneshot`, because the legacy `driver/adc.h` was removed in v6.
+- Added the `esp_driver_*` component dependencies that v6 needs after splitting the old `driver` component.
+- Changed `ESP_IF_WIFI_AP` to `WIFI_IF_AP`, and fixed a GCC 15 build error.
+
+---
+
 
 ## ESP-Drone
 
