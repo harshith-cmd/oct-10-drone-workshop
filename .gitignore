@@ -1,0 +1,4 @@
+build/
+prebuilt_v5.0.7_build/
+sdkconfig.old
+managed_components/
