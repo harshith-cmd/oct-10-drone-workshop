@@ -30,7 +30,7 @@
 
 #include "esp_idf_version.h"
 #include "syslink.h"
-#include "driver/adc.h"
+//#include "driver/adc.h" /* legacy ADC driver removed in IDF v6; see adc_esp32.c */
 //#include "deck.h"
 
 #ifndef CRITICAL_LOW_VOLTAGE
